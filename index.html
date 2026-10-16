@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Robotic Spatiotemporal Editing: A Unified Interface for Controllable Action Generation via Masked Action Reconstruction.">
+    <meta name="theme-color" content="#eeede5">
+    <title>Robotic Spatiotemporal Editing: A Unified Interface for Controllable Action Generation via Masked Action Reconstruction</title>
+    <link rel="stylesheet" href="./css/style.css?v=20261015-demo-size">
+    <script src="./js/main.js?v=20261015-demo-play" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="shell header-inner">
+        <a class="wordmark" href="#top" aria-label="RoSE home">
+          <span class="wordmark-mark" aria-hidden="true"></span>
+          <span>RoSE</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+          <span class="sr-only">Toggle navigation</span>
+          <span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-nav>
+          <a href="#abstract">Abstract</a>
+          <a href="#method">Method</a>
+          <a href="#experiments">Experiments</a>
+          <a href="#demos">Demos</a>
+          <a href="#citation">Citation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="project-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="shell hero-inner">
+          <h1 id="project-title">RoSE</h1>
+          <p class="hero-subtitle">
+            <span class="hero-subtitle-line">Robotic Spatiotemporal Editing: A Unified Interface for</span>
+            <span class="hero-subtitle-line">Controllable Action Generation via Masked Action Reconstruction</span>
+          </p>
+
+          <div class="hero-actions" aria-label="Project resources">
+            <!-- TODO: Add paper PDF to paper/ and update this link -->
+            <a class="action-button is-disabled" aria-disabled="true" data-unavailable>
+              <span class="action-icon paper-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8.5 12h7M8.5 15.5h7M8.5 19h4"/></svg>
+              </span>
+              <span class="action-copy"><strong>Paper</strong></span>
+            </a>
+            <!-- TODO: Add public code URL -->
+            <a class="action-button is-disabled" aria-disabled="true" data-unavailable>
+              <span class="action-icon github-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22c.57.1.77-.25.77-.55v-2.18c-3.15.69-3.81-1.34-3.81-1.34-.51-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.74.4-1.24.72-1.52-2.51-.29-5.15-1.26-5.15-5.59 0-1.23.44-2.24 1.17-3.03-.12-.29-.51-1.44.11-2.99 0 0 .95-.31 3.11 1.16a10.8 10.8 0 0 1 5.67 0C17.05 4.97 18 5.28 18 5.28c.62 1.55.23 2.7.11 2.99.73.79 1.17 1.8 1.17 3.03 0 4.34-2.64 5.3-5.16 5.58.41.35.77 1.04.77 2.1v3.17c0 .3.2.66.78.55A11.3 11.3 0 0 0 12 .7Z"/></svg>
+              </span>
+              <span class="action-copy"><strong>GitHub</strong></span>
+            </a>
+            <a class="action-button" href="#demos">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z" fill="currentColor" stroke="none"/></svg>
+              </span>
+              <span class="action-copy"><strong>Video</strong></span>
+            </a>
+            <!-- TODO: Add dataset URL or relative download path -->
+            <a class="action-button is-disabled" aria-disabled="true" data-unavailable>
+              <span class="action-icon huggingface-icon" aria-hidden="true">🤗</span>
+              <span class="action-copy"><strong>Hugging Face</strong></span>
+            </a>
+          </div>
+
+          <div class="interactive-demo hero-interactive-demo" role="region" aria-label="Interactive robot demonstration">
+            <div class="interactive-demo-frame">
+              <iframe src="./mam-demo.html?v=20261015-purple-heading" title="Interactive MAM reference-conditioned robot rollout demo" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-abstract" id="abstract" aria-labelledby="abstract-title">
+        <div class="shell narrow-shell">
+          <div class="section-heading centered">
+            <span class="section-number">01</span>
+            <h2 id="abstract-title">Abstract</h2>
+          </div>
+          <!-- TODO: Add abstract -->
+          <p class="abstract-copy">Generative policies can synthesize robot behaviors, yet controlling and editing them through diverse spatiotemporal references remains challenging. Real-world manipulation requires robots to satisfy user-specified constraints on where, when, and how actions are executed. Our key insight is that spatiotemporal control references, such as keypoints, flows, orientations, and keyposes, can be viewed as partial specifications of the same temporal Cartesian action space. We introduce the <strong>MAP (Masked Action Space)</strong> interface to unify these action references and formulate controllable manipulation as an action inpainting problem. Our <strong>Inpainting Policy (IP)</strong> reconstructs missing action dimensions of the end-effector, combining progress-guided alignment with multi-mask training to support unseen action constraint combinations. We further adopt a training-free <strong>RePaint</strong> variant that iteratively inpaints the action during denoising to reduce control error. On ManiSkill and LIBERO-10, our policy achieves average task success rates of 92.67% and 64.67%, respectively. Real-world experiments demonstrate spatiotemporal control with average positional and rotational errors of 43.3 mm and 7.8°, respectively.</p>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="method" aria-labelledby="method-title">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <h2 id="method-title">Method</h2>
+          </div>
+          <!-- TODO: Add method figure -->
+          <div class="media-placeholder method-placeholder">
+            <div class="method-flow" aria-hidden="true">
+              <span>Control reference</span><i>→</i><span>MAP interface</span><i>→</i>
+              <div class="policy-stack">
+                <span class="accent-block">Inpainting policy</span>
+                <i class="observation-arrow">↑</i>
+                <span class="observation-block">Observation</span>
+              </div>
+              <i>→</i><span>Action chunk</span>
+            </div>
+          </div>
+          <div class="overview-figures method-overview-figures">
+            <figure class="overview-figure">
+              <div class="overview-crop overview-crop-top">
+                <img src="./assets/images/overview-system.webp" width="2800" height="1195" alt="RoSE system overview showing the world model, multimodal masked action representation, robot pose generation, and action inpainting pipeline" loading="lazy" decoding="async">
+              </div>
+              <figcaption><strong>Figure 1: Unified spatiotemporal control via action inpainting — Top.</strong> The <strong>Masked Action Space (MAP)</strong> interface unifies heterogeneous references from upstream models and human inputs as partial specifications of temporal Cartesian actions. We use progress values instead of raw <strong>timesteps</strong>.</figcaption>
+            </figure>
+            <figure class="overview-figure">
+              <div class="overview-crop overview-crop-bottom">
+                <img src="./assets/images/overview-system.webp" width="2800" height="1195" alt="RoSE action inpainting examples showing multiple control modalities and the policy output" loading="lazy" decoding="async">
+              </div>
+              <figcaption><strong>Figure 1 — Bottom.</strong> Our <strong>Inpainting Policy (IP)</strong> completes these partial specifications through action inpainting, supporting potentially unlimited spatiotemporal reference types and unseen combinations.</figcaption>
+            </figure>
+          </div>
+          <div class="text-columns">
+            <p><strong>PROGRESS-GUIDED SLIDING WINDOW</strong><b>(1)</b> A progress-guided sliding window aligns MAP with the current task progress and provides a temporally anchored MAP condition.</p>
+            <p><strong>MULTI-MODAL JOINT TRAINING</strong><b>(2)</b> Multi-modal joint training over heterogeneous mask families enables structured control and zero-shot generalization to unseen spatiotemporal compositions.</p>
+            <p><strong>REPAINT TRAINING-FREE INFERENCE STRATEGY</strong><b>(3)</b> We adopt RePaint (Lugmayr et al., 2022) as a training-free inference strategy, which repeatedly reinserts the specified action tokens during the denoising process of the diffusion-based policy, thereby improving adherence to the provided constraints.</p>
+          </div>
+          <div class="method-figure-sequence" aria-label="Figure 2: Inpainting Policy">
+            <figure class="overview-figure method-figure-panel">
+              <span class="method-figure-index" aria-hidden="true">1</span>
+              <div class="method-figure-crop method-figure-crop-left">
+                <img src="./assets/images/overview-training.webp" width="2800" height="1081" alt="Progress-guided MAP window and action-inpainting base model" loading="lazy" decoding="async">
+              </div>
+              <!-- Expanded from the paper's Method: progress alignment and Inpainting Policy. -->
+              <figcaption>
+                <p><strong>Figure 2(a): Progress-guided action inpainting.</strong> Camera observations and proprioceptive information estimate the current task progress, anchor a local MAP window, and condition the base model to reconstruct the missing action tokens.</p>
+              </figcaption>
+            </figure>
+            <figure class="overview-figure method-figure-panel">
+              <span class="method-figure-index" aria-hidden="true">2</span>
+              <div class="method-figure-crop method-figure-crop-training">
+                <img src="./assets/images/overview-training.webp" width="2800" height="1081" alt="Multi-modal joint training over heterogeneous masked action references" loading="lazy" decoding="async">
+              </div>
+              <!-- Expanded from the paper's Method: multimodal joint training. -->
+              <figcaption>
+                <p><strong>Figure 2(b): Multi-modal joint training.</strong> Joint training over heterogeneous mask families enables structured control and supports generalization to unseen spatiotemporal reference compositions.</p>
+              </figcaption>
+            </figure>
+            <figure class="overview-figure method-figure-panel">
+              <span class="method-figure-index" aria-hidden="true">3</span>
+              <div class="method-figure-crop method-figure-crop-repaint">
+                <img src="./assets/images/overview-training.webp" width="2800" height="1081" alt="RePaint denoising strategy for action inpainting" loading="lazy" decoding="async">
+              </div>
+              <!-- Expanded from the paper's Method: inpainting via RePaint. -->
+              <figcaption>
+                <p><strong>Figure 2(c): RePaint inference.</strong> During denoising, the specified action tokens are repeatedly reinserted so the completed action chunk adheres more closely to the provided constraints.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experiments" aria-labelledby="experiments-title">
+        <div class="shell split-layout">
+          <div class="section-heading sticky-heading">
+            <span class="section-number">03</span>
+            <h2 id="experiments-title">Experiments</h2>
+          </div>
+          <div class="experiment-list">
+            <article class="experiment-card" data-experiment-card tabindex="0">
+              <div class="experiment-summary">
+                <h3>UNIFIED CONTROL VIA JOINT TRAINING</h3>
+              </div>
+              <div class="experiment-details">
+                <div class="experiment-result-grid">
+                  <section class="experiment-result-panel" aria-labelledby="joint-training-table-caption">
+                    <div class="experiment-table-wrap">
+                      <table class="benchmark-table" aria-label="Success rate and control error on LIBERO-10 and ManiSkill">
+                        <thead>
+                          <tr><th scope="col" rowspan="2">Method</th><th scope="colgroup" colspan="2">Multi-task<br>(LIBERO-10)</th><th scope="colgroup" colspan="5">Single-task<br>(ManiSkill)</th></tr>
+                          <tr><th scope="col">Avg. SR<br>(%) ↑</th><th scope="col">CE(all) ↓</th><th scope="col">Lift Peg<br>SR (%) ↑</th><th scope="col">Pick Cube<br>SR (%) ↑</th><th scope="col">Poke Cube<br>SR (%) ↑</th><th scope="col">Avg. SR<br>(%) ↑</th><th scope="col">CE(all) ↓</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr><th scope="row">DP</th><td>60.00</td><td>—</td><td>86.33</td><td>69.33</td><td>69.67</td><td>75.11</td><td>—</td></tr>
+                          <tr><th scope="row">DiT Policy</th><td>59.67</td><td>—</td><td>94.67</td><td>87.33</td><td><strong>93.00</strong></td><td>91.67</td><td>—</td></tr>
+                          <tr><th scope="row">STC</th><td>50.67</td><td>0.060</td><td>72.67</td><td>65.67</td><td>91.67</td><td>76.67</td><td>0.041</td></tr>
+                          <tr><th scope="row">IP</th><td><strong>64.67</strong></td><td>0.045</td><td><strong>100.00</strong></td><td><strong>90.33</strong></td><td>87.67</td><td><strong>92.67</strong></td><td>0.023</td></tr>
+                          <tr><th scope="row">IP-RePaint</th><td>51.33</td><td><strong>0.026</strong></td><td>95.80</td><td>82.13</td><td>62.20</td><td>80.04</td><td><strong>0.014</strong></td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="experiment-caption">
+                      <p id="joint-training-table-caption"><strong>Table 1: Unified control via joint training.</strong> Each policy checkpoint is evaluated across reference types using the average top-three picks of success rate and control error (CE). ManiSkill uses a separate policy for each task, whereas <strong>LIBERO-10</strong> uses a shared multitask policy.</p>
+                    </div>
+                    <div class="experiment-notes">
+                      <p><strong>Joint-Training Performance.</strong> <strong>Table 1</strong> shows that STC performs worse than its corresponding base policies, indicating that directly conditioning action generation on control signals can interfere with task SR. In contrast, Inpainting Policy improves task completion while achieving lower control error, performing well in both multi-task and single-task settings and achieving the highest average success rates of <strong>64.67%</strong> and <strong>92.67%</strong>, respectively. The training-free RePaint variant further reduces CE with relative reductions of <strong>42.2%</strong> and <strong>39.1%</strong>, respectively, demonstrating a trade-off between control accuracy and task completion.</p>
+                    </div>
+                  </section>
+                  <section class="experiment-result-panel" aria-labelledby="joint-training-figure-caption">
+                    <div class="experiment-figure-viewport figure-crop">
+                      <img src="./assets/images/experiment-benchmarks.webp" width="1710" height="1158" alt="Bar chart comparing success rates by reference type and line chart showing control error over training" loading="lazy" decoding="async">
+                    </div>
+                    <div class="experiment-caption">
+                      <p id="joint-training-figure-caption"><strong>Figure 5: Mask-type breakdown in joint training.</strong> Left: We compare success rates across reference types, including the unseen mixed mask Mix0, to evaluate controllability and compositional generalization. Right: Control error decreases as training progresses.</p>
+                    </div>
+                    <div class="experiment-notes">
+                      <p><strong>Mask-Type Breakdown and Training Dynamics.</strong> <strong>Figure 5</strong> shows that Inpainting Policy provides the strongest average control performance across all control types, especially on the unseen Mix0 mask (<strong>80.56%</strong>). STC performs strongly on dense 2D/3D flow (<strong>80.00%</strong>), but degrades sharply under sparse constraints. The right plot shows that Inpainting Policy progressively improves its control capability during training, with CE decreasing from approximately <strong>0.049</strong> to <strong>0.022</strong>. In contrast, RePaint maintains the lowest CE, around <strong>0.014–0.015</strong>, across all checkpoints. Notably, since the Mix0 composition is absent from the training set, its high success rate indicates that the policy can <strong>compose learned mask patterns</strong> without additional finetuning.</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </article>
+            <article class="experiment-card" data-experiment-card tabindex="0">
+              <div class="experiment-summary">
+                <h3>STUDY ON ACTION INPAINTING</h3>
+              </div>
+              <div class="experiment-details experiment-details-panel">
+                <div class="experiment-image-wrap">
+                  <img src="./assets/images/experiment-ablation.webp" width="2172" height="724" alt="Plots studying mask ratio and performance under the same number of spatiotemporal tokens" loading="lazy" decoding="async">
+                </div>
+                <div class="experiment-copy-fold" tabindex="0">
+                  <div class="experiment-fold-hint"><span>Research notes</span><span>Hover to read ↓</span></div>
+                  <div class="experiment-copy-content">
+                    <div class="experiment-caption">
+                      <p><strong>Figure 4: Effect of spatiotemporal information quantity and structure.</strong> (a) We vary the visible ratio to examine how the number of references affects task success. (b) We compare mask types with approximately equal numbers of spatiotemporal tokens, alongside a base policy (a DiT policy), to assess how constraint structure influences the performance of Inpainting Policy. Here, <em>r</em> denotes the visible ratio, i.e., the proportion of action information that is not masked in MAP.</p>
+                    </div>
+                    <div class="experiment-notes-grid">
+                      <div class="experiment-notes">
+                        <p><strong>Mask Ratio and Mask-Type Analysis.</strong> <strong>Figure 4(a)</strong> shows that increasing the visible-action ratio generally improves task success, indicating that additional known action components provide stronger guidance for reconstructing executable behaviors. For the structured 3D-point mask, success increases from <strong>57.0%</strong> at a ratio of <strong>0.02</strong> to <strong>91.7%</strong> at <strong>0.50</strong>. Although the random mask also improves with more visible actions, its performance is less stable and reaches only <strong>71.7%</strong> at the highest ratio. This gap suggests that structured control signals convey more task-relevant information than randomly selected action components. <strong>Figure 4(b)</strong> compares different mask types under approximately the same number of visible spatiotemporal tokens. Across all mask types, IP outperforms the unconditioned DiT policy. Positional and full-pose constraints provide the strongest guidance, whereas orientation-only constraints are less informative for task completion. The random-mask result further shows that semantically structured action references are more effective than an equivalent number of arbitrary visible tokens.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="experiment-card" data-experiment-card tabindex="0">
+              <div class="experiment-summary">
+                <h3>CONTROL WITH REAL-WORLD REFERENCES</h3>
+              </div>
+              <div class="experiment-details experiment-details-panel">
+                <div class="experiment-real-world-split" aria-label="Real-world reference experiment panel A">
+                  <figure class="experiment-real-world-panel">
+                    <div class="experiment-real-world-crop experiment-real-world-crop-a">
+                      <img src="./assets/images/experiment-real-world.webp" width="2800" height="1328" alt="Panel A: cup arrangement and liquid-pouring rollouts with progress-aligned control references" loading="lazy" decoding="async">
+                    </div>
+                  </figure>
+                </div>
+                <div class="experiment-copy-fold" tabindex="0">
+                  <div class="experiment-fold-hint"><span>Research notes</span><span>Hover to read ↓</span></div>
+                  <div class="experiment-copy-content">
+                    <div class="experiment-caption">
+                      <p><strong>Figure 6: Real-world spatiotemporal editing.</strong> Here, <em>p<sub>r</sub></em> denotes the progress associated with a user-provided reference, whereas <em>p</em> denotes the robot’s current execution progress. The rollouts and corresponding MAP masks illustrate how these references guide execution.</p>
+                    </div>
+                    <div class="experiment-notes-grid">
+                      <div class="experiment-notes">
+                        <p><strong>Result.</strong> As shown in <strong>Figure 6</strong>, with three or more reference points, the policy achieves success rates above <strong>93%</strong>, while the cup-to-reference-point distance ranges from <strong>18.2</strong> to <strong>63.7 mm</strong>, with an average of <strong>43.3 mm</strong>. In the liquid-pouring task, the tube-tilt error remains below <strong>8°</strong>, with a mean of <strong>7.8°</strong>. These results show that providing explicit control constraints substantially improves task completion and reference adherence: denser references produce smoother motion and smaller deviations from the target. In contrast, when only a single reference is provided at the final progress point, the task completion rate falls below <strong>30%</strong>, revealing a limitation of sparse late-stage supervision and an important direction for improving the subsequent editing system. Supplementary <strong>Section 2.6</strong> provides additional recorded SR and normalized CE results (<strong>Tables 3–5</strong>), plus deployment tips.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="demos" aria-labelledby="demos-title">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <h2 id="demos-title">Demo Videos</h2>
+          </div>
+          <div class="demo-evidence-grid" aria-label="Real-world experiment results">
+            <figure class="demo-evidence-figure" aria-label="Cup arrangement experiment and success-rate comparison">
+              <div class="demo-evidence-crop demo-evidence-crop-cup">
+                <img src="./assets/images/demo-real-world-evaluation.webp" width="2800" height="1328" alt="Cup arrangement experiment with control references and success-rate comparison between the base policy and RoSE" loading="lazy" decoding="async">
+              </div>
+            </figure>
+            <figure class="demo-evidence-figure" aria-label="Liquid-pouring experiment and success-rate comparison">
+              <div class="demo-evidence-crop demo-evidence-crop-water">
+                <img src="./assets/images/demo-real-world-evaluation.webp" width="2800" height="1328" alt="Liquid-pouring experiment with angular control references and success-rate comparison between the base policy and RoSE" loading="lazy" decoding="async">
+              </div>
+            </figure>
+          </div>
+          <div class="demo-group" data-demo-group>
+          <div class="demo-toolbar">
+            <div class="demo-toolbar-actions">
+              <span class="demo-status" data-demo-status aria-live="polite">01 / 05</span>
+              <div class="demo-controls" aria-label="Cup demo video navigation">
+                <button type="button" data-demo-previous aria-label="Show previous cup demo">←</button>
+                <button type="button" data-demo-next aria-label="Show next cup demo">→</button>
+              </div>
+            </div>
+          </div>
+          <div class="demo-rail" data-demo-rail>
+            <article class="demo-card">
+              <div class="demo-media"><span>01 / 05</span><video controls muted playsinline preload="metadata" poster="./assets/images/demo-poster-cup-left.webp"><source src="./assets/videos/cup-left-pure.mp4?v=20261014" type="video/mp4">Your browser does not support MP4 video.</video></div>
+              <div class="demo-copy">
+                <h3><span class="demo-title-icon">1</span><span>Cup placement · left</span></h3>
+                <p>Grasp the cup from its right side and place it at the left side of the plate.</p>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="demo-media"><span>02 / 05</span><video controls muted playsinline preload="metadata" poster="./assets/images/demo-poster-cup-right.webp"><source src="./assets/videos/cup-right-pure.mp4?v=20261014" type="video/mp4">Your browser does not support MP4 video.</video></div>
+              <div class="demo-copy">
+                <h3><span class="demo-title-icon">2</span><span>Cup placement · right</span></h3>
+                <p>Grasp the cup from its right side and place it at the right side of the plate.</p>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="demo-media"><span>03 / 05</span><video controls muted playsinline preload="metadata" poster="./assets/images/demo-poster-cup-middle.webp"><source src="./assets/videos/cup-middle-pure.mp4?v=20261014" type="video/mp4">Your browser does not support MP4 video.</video></div>
+              <div class="demo-copy">
+                <h3><span class="demo-title-icon">3</span><span>Cup placement · middle</span></h3>
+                <p>Grasp the cup from its right side and place it at the middle of the plate.</p>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="demo-media"><span>04 / 05</span><video controls muted playsinline preload="metadata" poster="./assets/images/demo-poster-cup-front.webp"><source src="./assets/videos/cup-front-pure.mp4?v=20261014" type="video/mp4">Your browser does not support MP4 video.</video></div>
+              <div class="demo-copy">
+                <h3><span class="demo-title-icon">4</span><span>Cup placement · front</span></h3>
+                <p>Grasp the cup from its right side and place it at the front of the plate.</p>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="demo-media"><span>05 / 05</span><video controls muted playsinline preload="metadata" poster="./assets/images/demo-poster-cup-gripper-left.webp"><source src="./assets/videos/cup-gripper-left-pure.mp4?v=20261014" type="video/mp4">Your browser does not support MP4 video.</video></div>
+              <div class="demo-copy">
+                <h3><span class="demo-title-icon">5</span><span>Cup placement · gripper left</span></h3>
+                <p>Grasp the cup from its left side and place it at the middle of the plate.</p>
+              </div>
+            </article>
+          </div>
+          </div>
+          <div class="demo-group" data-demo-group>
+          <div class="demo-toolbar">
+            <div class="demo-toolbar-actions">
+              <span class="demo-status" data-demo-status aria-live="polite">01 / 02</span>
+              <div class="demo-controls" aria-label="Water demo video navigation">
+                <button type="button" data-demo-previous aria-label="Show previous water demo">←</button>
+                <button type="button" data-demo-next aria-label="Show next water demo">→</button>
+              </div>
+            </div>
+          </div>
+          <div class="demo-rail" data-demo-rail>
+            <article class="demo-card">
+              <div class="demo-media"><span>01 / 02</span><video controls muted playsinline preload="metadata" poster="./assets/images/demo-poster-water-theta-1.webp"><source src="./assets/videos/water-theta-1-pure.mp4?v=20261014" type="video/mp4">Your browser does not support MP4 video.</video></div>
+              <div class="demo-copy">
+                <h3>Liquid pouring · <span class="theta-symbol">θ₁</span></h3>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="demo-media"><span>02 / 02</span><video controls muted playsinline preload="metadata" poster="./assets/images/demo-poster-water-theta-3.webp"><source src="./assets/videos/water-theta-3-pure.mp4?v=20261014" type="video/mp4">Your browser does not support MP4 video.</video></div>
+              <div class="demo-copy">
+                <h3>Liquid pouring · <span class="theta-symbol">θ₃</span></h3>
+              </div>
+            </article>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="citation" aria-labelledby="citation-title">
+        <div class="shell citation-layout">
+          <div class="section-heading">
+            <span class="section-number">05</span>
+            <h2 id="citation-title">Citation</h2>
+          </div>
+          <div class="citation-block">
+            <!-- TODO: Replace with the final BibTeX entry -->
+            <button class="copy-button" type="button" data-copy-bibtex aria-label="Copy BibTeX citation">Copy BibTeX</button>
+            <pre><code id="bibtex">@article{rose2026,
+  title   = {Robotic Spatiotemporal Editing: A Unified Interface for Controllable Action Generation via Masked Action Reconstruction},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</code></pre>
+            <p class="copy-status" aria-live="polite" data-copy-status></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </body>
+</html>

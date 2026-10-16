@@ -1,0 +1,46 @@
+/* RoSE palette: warm paper, dark ink, blue accents, and orange references. */
+:root {
+  --rose-blue: #3155ff;
+  --rose-ink: #0b0b0b;
+  --rose-muted: #66665e;
+  --rose-paper: #eeede5;
+  --rose-bright: #f8f7f0;
+  --rose-line: #d4d3ca;
+  color: var(--rose-ink);
+  background: var(--rose-bright);
+}
+body[data-layout="compact"] { color: var(--rose-ink); background: var(--rose-bright); }
+body[data-layout="compact"] .workspace { background: var(--rose-bright); }
+body[data-layout="compact"] .library { background: var(--rose-paper); border-color: var(--rose-line); }
+body[data-layout="compact"] :is(.main-heading h1, .video-heading, .scene-label h2, .library h3, .card-copy strong, .algorithm-heading h2, #method-title) { color: var(--rose-ink); }
+body[data-layout="compact"] :is(.main-heading #video-title, .main-heading .eyebrow, .interaction-hint, .card-copy small, .library header p, .algorithm-source, .algorithm-summary, .algorithm-status, .algorithm-legend, .algorithm-legend b, .scene-bottom, .video-footer, .view-help) { color: var(--rose-muted); }
+body[data-layout="compact"] :is(.algorithm-panel, .video-frame, #viewport) { color: var(--rose-ink); background: #fff; border-color: var(--rose-line); }
+body[data-layout="compact"] .algorithm-ref-type { color: var(--rose-blue); background: #eef1ff; border-color: #dbe3ff; }
+body[data-layout="compact"] #algorithm-panel .prediction-state { color: var(--algorithm-purple); }
+body[data-layout="compact"] #algorithm-panel .algorithm-progress { color: var(--rose-blue); }
+body[data-layout="compact"] #algorithm-panel .algorithm-axis-label { fill: var(--rose-muted); }
+body[data-layout="compact"] .reference-type-badge { background: #fff0df; border-color: #e8a45f; color: #8b4208; }
+body[data-layout="compact"] .reference-type-badge small { color: #a55312; }
+body[data-layout="compact"] .reference-card .card-number,
+body[data-layout="compact"] .ref-badge > span { background: #f28c28; color: #2c1708; }
+body[data-layout="compact"] .reference-card[aria-pressed="false"] .card-number { background: #ffe2c2; color: #8b4208; }
+body[data-layout="compact"] :is(#video-number, #demonstration-label) { color: var(--rose-ink); }
+
+/* Camera and playback controls use a quiet outline; blue denotes selection. */
+body[data-layout="compact"] button { color: var(--rose-ink); background: #fff; border: 1px solid var(--rose-line); transition: color .15s, background-color .15s, border-color .15s; }
+body[data-layout="compact"] button:hover { color: var(--rose-blue); background: #f4f7ff; border-color: var(--rose-blue); }
+body[data-layout="compact"] button:focus-visible { outline: 2px solid var(--rose-blue); outline-offset: 3px; }
+body[data-layout="compact"] :is(.view-switch, .type-switch, .ref-type-switch, .task-switch, .environment-switch, .presentation-switch) { background: transparent; border-color: var(--rose-line); }
+body[data-layout="compact"] button[aria-pressed="true"] { color: var(--rose-blue); background: #eef1ff; border-color: var(--rose-blue); box-shadow: none; }
+body[data-layout="compact"] .type-switch button[aria-pressed="true"] { color: #8b4208; background: #ffdfb6; border-color: #e8a45f; }
+body[data-layout="compact"] #playback button { color: #fff; background: var(--rose-blue); border-color: var(--rose-blue); }
+
+/* Video choices stay neutral, with a narrow blue edge for the active item. */
+body[data-layout="compact"] .reference-card { background: transparent; border-color: transparent; box-shadow: none; }
+body[data-layout="compact"] .reference-card:hover { background: var(--rose-bright); border-color: var(--rose-line); }
+body[data-layout="compact"] .reference-card[aria-pressed="true"] { color: var(--rose-ink); background: #fff; border-color: var(--rose-line); box-shadow: inset 3px 0 0 var(--rose-blue); }
+body[data-layout="compact"] .reference-card .card-copy strong { color: var(--rose-ink); }
+body[data-layout="compact"] .reference-card .card-copy small { color: var(--rose-muted); }
+body[data-layout="compact"] .library-footer { display: none; }
+body[data-layout="compact"] #loading { color: var(--rose-blue); background: var(--rose-bright); }
+#playback input { accent-color: var(--rose-blue); }
