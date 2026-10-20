@@ -59,7 +59,7 @@ embedded in the homepage and loads automatically as it comes into view.
 
 - Edit page copy and section structure in `index.html`.
 - Edit colors, type, layout, and responsive styles in `css/style.css`.
-- Edit navigation and the BibTeX copy interaction in `js/main.js`.
+- Edit navigation and page interactions in `js/main.js`.
 - Put figures and photographs in `assets/images/`.
 - Put compressed demo media in `assets/videos/` (MP4/WebM recommended).
 - Put downloadable results in `assets/results/`.

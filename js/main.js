@@ -61,26 +61,6 @@ if ('IntersectionObserver' in window) {
   observedSections.forEach((section) => observer.observe(section));
 }
 
-const copyButton = document.querySelector('[data-copy-bibtex]');
-const copyStatus = document.querySelector('[data-copy-status]');
-
-copyButton?.addEventListener('click', async () => {
-  const citation = document.querySelector('#bibtex')?.textContent.trim();
-  if (!citation) return;
-
-  try {
-    await navigator.clipboard.writeText(citation);
-    copyButton.textContent = 'Copied';
-    copyStatus.textContent = 'BibTeX copied to clipboard.';
-    window.setTimeout(() => {
-      copyButton.textContent = 'Copy BibTeX';
-      copyStatus.textContent = '';
-    }, 2200);
-  } catch {
-    copyStatus.textContent = 'Copy failed. Select the BibTeX text manually.';
-  }
-});
-
 document.querySelectorAll('[data-unavailable]').forEach((link) => {
   link.addEventListener('click', (event) => event.preventDefault());
 });
